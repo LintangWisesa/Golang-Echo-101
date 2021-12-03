@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	
+
 	"github.com/labstack/echo/v4"
 )
 
@@ -15,7 +15,7 @@ func main() {
 	e := echo.New()
 
 	// POST /users body = json / xml / form / query
-    e.POST("/users", func(c echo.Context) error {
+	e.POST("/users", func(c echo.Context) error {
 		u := new(User)
 		if err := c.Bind(u); err != nil {
 			return err
@@ -26,5 +26,5 @@ func main() {
 	})
 
 	// log error if server failed to run
-    e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":1323"))
 }
